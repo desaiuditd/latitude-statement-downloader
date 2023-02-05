@@ -1,0 +1,31 @@
+{
+  "name": "latitude-statement-downloader",
+  "version": "0.0.1",
+  "description": "Download transaction statements in CSV from Latitude 28 Degrees Credit Card accounts.",
+  "main": "src/index.tsx",
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup --watch"
+  },
+  "author": "Udit Desai",
+  "devDependencies": {
+    "@desaiuditd/eslint-config": "^0.0.2",
+    "@sapphire/result": "^2.6.0",
+    "@swc/cli": "^0.1.59",
+    "@swc/core": "^1.3.26",
+    "@types/node": "^18.11.19",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@wordpress/eslint-plugin": "^13.10.0",
+    "esbuild-plugin-globals": "^0.1.1",
+    "esbuild-plugin-swc": "^1.0.1",
+    "eslint": "^8.33.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.5"
+  }
+}
