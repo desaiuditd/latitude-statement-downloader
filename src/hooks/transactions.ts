@@ -86,7 +86,7 @@ export const useParseTxns = ( startDateStr?: string, endDateStr?: string ) => {
 						.reduce(
 							( acc, descChildEl ) => `${ acc } ${ descChildEl.textContent }`,
 							'',
-						);
+						).trim();
 
 					const amtEl = txnEl.querySelector( TXN_AMOUNT_SELECTOR );
 
@@ -95,7 +95,7 @@ export const useParseTxns = ( startDateStr?: string, endDateStr?: string ) => {
 						return;
 					}
 
-					const amount = amtEl.textContent;
+					const amount = amtEl.textContent.replace( '$', '' );
 
 					// If this txn is pending, bail early.
 					if ( amount.toLowerCase().endsWith( 'pending' ) ) {
