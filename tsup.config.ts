@@ -1,8 +1,7 @@
 import GlobalsPlugin from 'esbuild-plugin-globals';
 import { swcPlugin } from 'esbuild-plugin-swc';
+import { esbuildPluginVersionInjector } from 'esbuild-plugin-version-injector';
 import { defineConfig, Options } from 'tsup';
-
-import { esbuildPluginVersionInjector } from './.esbuild/esbuild-plugin-version-injector';
 
 export const tsup = defineConfig( {
 	clean: true,
