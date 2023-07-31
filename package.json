@@ -22,7 +22,7 @@
     "esbuild-plugin-globals": "^0.1.1",
     "esbuild-plugin-swc": "^1.0.1",
     "esbuild-plugin-version-injector": "^1.1.0",
-    "eslint": "^8.39.0",
+    "eslint": "^8.46.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
