@@ -18,7 +18,7 @@
     "@types/react-dom": "^18.2.8",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^5.59.0",
-    "@wordpress/eslint-plugin": "^13.10.0",
+    "@wordpress/eslint-plugin": "^16.0.0",
     "esbuild-plugin-globals": "^0.2.0",
     "esbuild-plugin-swc": "^1.0.1",
     "esbuild-plugin-version-injector": "^1.2.1",
