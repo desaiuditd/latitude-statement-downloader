@@ -1,7 +1,10 @@
 // ! These selectors are hardcoded based on html markup on Latitude Portal website.
 const TXNS_LIST_SELECTOR = 'div#transaction-list';
 const TXNS_SELECTOR = `${ TXNS_LIST_SELECTOR } div[data-testid="transaction"]`;
-const ACCT_INFO_SELECTOR = 'div[data-testid="credit-card-ending-7978-info"] p';
+
+// ! .css-1m06lcz is for "Reward points" text.
+// ! .css-1nr0svk is for "Reward points" hyphen.
+const ACCT_INFO_SELECTOR = 'div[data-testid="credit-card-ending-7978-info"] p:not(.css-1m06lcz):not(.css-1nr0svk)';
 const TXNS_DATE_SELECTOR = 'p.chakra-text.css-nxzops';
 
 // ! .css-1lglxma is for debit.
