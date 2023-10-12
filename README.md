@@ -1,7 +1,7 @@
 # latitude-statement-downloader
 Download transaction statements in CSV from Latitude 28 Degrees Credit Card accounts.
 
-This is implemented as userscript, to be used with Tampermonkey/Greasemonkey.
+This is implemented as a userscript, to be used with Tampermonkey/Greasemonkey.
 
 ## Usage
 
