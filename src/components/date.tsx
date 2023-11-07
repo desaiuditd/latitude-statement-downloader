@@ -1,19 +1,21 @@
 import React, { ChangeEvent, FC } from 'react';
 
 interface DateProps {
+	date: string;
 	id: string;
 	label: string;
-	date: string;
+	max?: string;
+	min?: string;
 	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const DatePicker: FC<DateProps> = ({ date, onChange, id, label }) => {
+export const DatePicker: FC<DateProps> = ({ date, id, label, max, min, onChange }) => {
 	return (
 		<div className="mr3">
 			<label className="mr1" htmlFor={id}>
 				{label}
 			</label>
-			<input id={id} onChange={onChange} type="date" value={date} />
+			<input id={id} max={max} min={min} onChange={onChange} type="date" value={date} />
 		</div>
 	);
 };

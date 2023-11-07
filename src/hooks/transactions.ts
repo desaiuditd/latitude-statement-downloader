@@ -54,56 +54,63 @@ export const useParseTxns = (startDateStr?: string, endDateStr?: string) => {
 	const startDate = new Date(`${startDateStr} 00:00:00`);
 	const endDate = new Date(`${endDateStr}  00:00:00`);
 
-	const txns: Txn[] = [];
-
-	for (const dateBucket of Array.from(document.querySelectorAll(TXNS_SELECTOR))) {
+	const txns = Array.from(document.querySelectorAll(TXNS_SELECTOR)).reduce<Txn[]>((totalAcc, dateBucket) => {
 		const txnDateEl = dateBucket.querySelector(TXNS_DATE_SELECTOR);
 
 		if (!txnDateEl) {
-			return;
+			return totalAcc;
 		}
 
 		const txnDate = new Date(txnDateEl.textContent);
 
 		// If the txn doesn't fall in between the date range, bail early.
 		if (!(txnDate >= startDate && txnDate <= endDate)) {
-			return;
+			return totalAcc;
 		}
 
-		for (const txnEl of Array.from(dateBucket.querySelectorAll(TXN_SELECTOR))) {
-			const descEl = txnEl.querySelector(TXN_DESCRIPTION_SELECTOR);
+		const singleDateTxns = Array.from(dateBucket.querySelectorAll(TXN_SELECTOR)).reduce<Txn[]>(
+			(singleAcc, txnEl) => {
+				const descEl = txnEl.querySelector(TXN_DESCRIPTION_SELECTOR);
 
-			// Bail early, if we don't find the description.
-			if (!descEl) {
-				return;
-			}
+				// Bail early, if we don't find the description.
+				if (!descEl) {
+					return singleAcc;
+				}
 
-			const description = Array.from(descEl.childNodes)
-				.reduce((acc, descChildEl) => `${acc} ${descChildEl.textContent}`, '')
-				.trim();
+				const description = Array.from(descEl.childNodes)
+					.reduce((acc, descChildEl) => `${acc} ${descChildEl.textContent}`, '')
+					.trim();
 
-			const amtEl = txnEl.querySelector(TXN_AMOUNT_SELECTOR);
+				const amtEl = txnEl.querySelector(TXN_AMOUNT_SELECTOR);
 
-			// Bail early, if we don't find the amount.
-			if (!amtEl) {
-				return;
-			}
+				// Bail early, if we don't find the amount.
+				if (!amtEl) {
+					singleAcc;
+				}
 
-			const amount = amtEl.textContent.replace('$', '');
+				const amount = amtEl.textContent.replace('$', '');
 
-			// If this txn is pending, bail early.
-			if (amount.toLowerCase().endsWith('pending')) {
-				return;
-			}
+				// If this txn is pending, bail early.
+				if (amount.toLowerCase().endsWith('pending')) {
+					return singleAcc;
+				}
 
-			txns.push({
-				amount,
-				description,
-				payer,
-				txnDate,
-			});
-		}
-	}
+				singleAcc.push({
+					amount,
+					description,
+					payer,
+					txnDate,
+				});
+
+				return singleAcc;
+			},
+			[],
+		);
+
+		totalAcc.push(...singleDateTxns);
+
+		return totalAcc;
+	}, []);
 
 	return txns;
 };

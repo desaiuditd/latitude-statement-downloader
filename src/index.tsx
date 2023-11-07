@@ -20,11 +20,12 @@ import { createRoot } from 'react-dom/client';
 
 import { App } from './components/app';
 
+// ! These selectors are hardcoded based on html markup on Latitude Portal website.
 const TAB_LIST_SELECTOR = 'ul.react-tabs__tab-list';
+const TXNS_LIST_SELECTOR = 'div#transaction-list';
 
 const init = () => {
 	const tabList = document.querySelector(TAB_LIST_SELECTOR);
-
 	if (tabList === null) {
 		return;
 	}
@@ -44,6 +45,11 @@ const init = () => {
 		rel: 'stylesheet',
 	});
 
+	const txnList = document.querySelector(TXNS_LIST_SELECTOR);
+	if (txnList === null) {
+		return;
+	}
+
 	const root = createRoot(rootElement);
 	root.render(
 		<StrictMode>
@@ -53,5 +59,7 @@ const init = () => {
 };
 
 waitForKeyElements(TAB_LIST_SELECTOR, () => {
-	init();
+	waitForKeyElements(TXNS_LIST_SELECTOR, () => {
+		init();
+	});
 });
