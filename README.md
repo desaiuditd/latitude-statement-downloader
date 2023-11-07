@@ -7,8 +7,8 @@ This is implemented as a userscript, to be used with Tampermonkey/Greasemonkey.
 
 - Clone the repo.
 - `corepack enable`
-- `yarn install`.
-- `yarn build`.
+- `yarn install`
+- `yarn build`
 
 Final script will be built inside `dist` directory.
 
