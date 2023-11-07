@@ -6,8 +6,9 @@ This is implemented as a userscript, to be used with Tampermonkey/Greasemonkey.
 ## Usage
 
 - Clone the repo.
-- `npm install`.
-- `npm run build`.
+- `corepack enable`
+- `yarn install`.
+- `yarn build`.
 
 Final script will be built inside `dist` directory.
 
@@ -15,8 +16,8 @@ Import the script inside Tampermonkey/Greasemonkey.
 
 ## Development
 
-- `npm run watch`
-- `npx http-server ./dist` (in a separate CLI Terminal window/tab)
+- `yarn watch`
+- `yarn dlx http-server ./dist` (in a separate CLI Terminal window/tab)
 
 Import the script inside Tampermonkey/Greasemonkey.
 

@@ -23,39 +23,35 @@ import { App } from './components/app';
 const TAB_LIST_SELECTOR = 'ul.react-tabs__tab-list';
 
 const init = () => {
-	const tabList = document.querySelector( TAB_LIST_SELECTOR );
+	const tabList = document.querySelector(TAB_LIST_SELECTOR);
 
-	if ( tabList === null ) {
+	if (tabList === null) {
 		return;
 	}
 
-	const rootEl = document.createElement( 'div' );
+	const rootEl = document.createElement('div');
 	rootEl.id = 'lsd-root';
-	tabList.parentNode?.insertBefore( rootEl, tabList.nextSibling );
+	tabList.parentNode?.insertBefore(rootEl, tabList.nextSibling);
 
-	const rootElement = document.getElementById( 'lsd-root' );
-	if ( rootElement === null ) {
+	const rootElement = document.getElementById('lsd-root');
+	if (rootElement === null) {
 		return;
 	}
 
 	// Add small css utility.
-	GM_addElement(
-		'link',
-		{
-			href: 'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css',
-			rel: 'stylesheet',
-		},
-	);
+	GM_addElement('link', {
+		href: 'https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css',
+		rel: 'stylesheet',
+	});
 
-	const root = createRoot( rootElement );
+	const root = createRoot(rootElement);
 	root.render(
-
 		<StrictMode>
 			<App />
 		</StrictMode>,
 	);
 };
 
-waitForKeyElements( TAB_LIST_SELECTOR, () => {
+waitForKeyElements(TAB_LIST_SELECTOR, () => {
 	init();
-} );
+});
