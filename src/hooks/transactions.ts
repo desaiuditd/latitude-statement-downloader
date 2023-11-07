@@ -110,7 +110,7 @@ export const useParseTxns = (startDateStr?: string, endDateStr?: string) => {
 
 export const useGenerateCsvData = (txns: Txn[]): string =>
 	txns
-		.map(txn => [txn.txnDate.toDateString(), txn.payer, txn.description, txn.amount].map(c => `"${c}"`).join(','))
+		.map(txn => [txn.txnDate.toDateString(), txn.payer, txn.description, txn.amount].map(_c => `"${_c}"`).join(','))
 		.join('\n');
 
 export const getCsvFileName = (payer: string) => `transactions-${payer.replace(/\s/g, '-')}-${Date.now()}.csv`;

@@ -20,8 +20,8 @@ export const App: FC = () => {
 					date={startDate}
 					id="lsd-start-date"
 					label="Start date:"
-					onChange={e => {
-						setStartDate(e.currentTarget.value);
+					onChange={_e => {
+						setStartDate(_e.currentTarget.value);
 						setFileName(getCsvFileName(payer));
 					}}
 				/>
@@ -29,8 +29,8 @@ export const App: FC = () => {
 					date={endDate}
 					id="lsd-end-date"
 					label="End date:"
-					onChange={e => {
-						setEndDate(e.currentTarget.value);
+					onChange={_e => {
+						setEndDate(_e.currentTarget.value);
 						setFileName(getCsvFileName(payer));
 					}}
 				/>
