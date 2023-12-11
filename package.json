@@ -16,7 +16,7 @@
     "@swc/cli": "^0.1.63",
     "@swc/core": "^1.3.96",
     "@types/node": "^20.10.0",
-    "@types/react": "^18.2.38",
+    "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
     "esbuild-plugin-globals": "^0.2.0",
     "esbuild-plugin-swc": "^1.0.1",
