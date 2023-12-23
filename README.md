@@ -3,6 +3,8 @@ Download transaction statements in CSV from Latitude 28 Degrees Credit Card acco
 
 This is implemented as a userscript, to be used with Tampermonkey/Greasemonkey.
 
+Project not maintained actively.
+
 ## Usage
 
 - Clone the repo.
